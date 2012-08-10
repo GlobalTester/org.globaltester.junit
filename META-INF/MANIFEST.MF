@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Junit
+Bundle-SymbolicName: org.globaltester.junit
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.globaltester.junit.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.globaltester.core;bundle-version="3.0.1",
+ org.globaltester.cardconfiguration;bundle-version="3.0.0",
+ org.globaltester.testspecification;bundle-version="3.0.0",
+ org.globaltester.testrunner;bundle-version="3.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.globaltester.junit

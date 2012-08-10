@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestSpecification
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://globaltester.org/testspecification">
+  <VersionHistory>
+    <Version>
+      <VersionID>0.10</VersionID>
+      <Date>2012-03-28</Date>
+      <Editor>HJP Consulting GmbH</Editor>
+      <Description>Working Draft</Description>
+    </Version>
+  </VersionHistory>
+
+  <Text>
+  	<Heading level="1">Introduction</Heading>
+		<Paragraph>Simple test specification for use in unit tests.</Paragraph>
+  </Text>
+  <TestLayer>TestCases/testLayer.xml</TestLayer>
+</TestSpecification>
