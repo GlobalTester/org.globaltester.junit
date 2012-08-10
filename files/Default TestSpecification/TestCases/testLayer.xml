@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestLayer id="Layer_Id"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://globaltester.org/testspecification">
+  <Text>
+  	<Heading level="1">Test Units</Heading>
+  </Text>
+  
+  <TestUnit>Unit1.xml</TestUnit>
+</TestLayer>

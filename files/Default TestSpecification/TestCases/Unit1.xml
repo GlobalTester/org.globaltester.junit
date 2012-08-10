@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestUnit id="Unit_OpenPGP"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://globaltester.org/testspecification">
+  <Text>
+  	<Paragraph></Paragraph>
+  </Text>
+  <TestCase>Unit1/testcase1.xml</TestCase>
+</TestUnit>
