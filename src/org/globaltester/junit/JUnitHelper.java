@@ -1,6 +1,5 @@
 package org.globaltester.junit;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.core.resources.IProject;
@@ -68,24 +67,8 @@ public class JUnitHelper {
 	 */
 	public static void createDefaultCreateDefaultTestCampaign() throws IOException, CoreException{
 		IProject project = GtTestCampaignProject.createProject(testCampaign, null);
-		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + testCampaign, "ExecutionState", "TestResults", "TestSpecification", "testCampaign.xml");
+		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + testCampaign, "ExecutionState", "TestResults", "TestSpecification", "Default TestSpecification", "testCampaign.xml");
 		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE, null);
 	
-	}
-	
-	/**
-	 * Delete a folder recursively
-	 * 
-	 * @param toDelete
-	 */
-	public static void recursiveDelete(File toDelete) {
-		if (toDelete.isDirectory()) {
-			String[] files = toDelete.list();
-			for (String file : files) {
-				File current = new File(toDelete, file);
-				recursiveDelete(current);
-			}
-		}
-		toDelete.delete();
 	}
 }

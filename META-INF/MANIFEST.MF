@@ -10,8 +10,7 @@ Require-Bundle: org.eclipse.ui,
  org.globaltester.core;bundle-version="3.0.1",
  org.globaltester.cardconfiguration;bundle-version="3.0.0",
  org.globaltester.testspecification;bundle-version="3.0.0",
- org.globaltester.testrunner;bundle-version="3.0.0",
- org.junit
+ org.globaltester.testrunner;bundle-version="3.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.globaltester.junit
