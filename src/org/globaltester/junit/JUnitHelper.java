@@ -72,12 +72,14 @@ public class JUnitHelper {
 		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE, null);
 	
 	}
-	
 	/**
 	 * Delete a folder recursively
 	 * 
 	 * @param toDelete
 	 */
+	//FIXME: MBK: jenkins build does not work if this method is used
+	// file /srv/jenkins/.jenkins/jobs/GlobalTester_RCP/workspace/plugins/org.globaltester.core.test/src/org/globaltester/core/ExportTest.java,
+	// line 70: The method recursiveDelete(File) is undefined for the type JUnitHelper
 	public static void recursiveDelete(File toDelete) {
 		if (toDelete.isDirectory()) {
 			String[] files = toDelete.list();
