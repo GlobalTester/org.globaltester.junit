@@ -1,6 +1,8 @@
 package org.globaltester.junit;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.eclipse.core.resources.IProject;
@@ -39,15 +41,23 @@ public class JUnitHelper {
 		}
 	}
 	
+	public static IProject createEmptyProject(String name) throws CoreException{
+		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(name);
+		project.create(new NullProgressMonitor());
+		project.open(new NullProgressMonitor());
+		return project;
+	}
+	
 	/**
 	 * Create a simple default TestSpecification for testing.
 	 * @throws IOException
 	 * @throws CoreException
 	 */
-	public static void createDefaultTestSpec() throws IOException, CoreException{
+	public static IProject createDefaultTestSpec() throws IOException, CoreException{
 		IProject project = GtTestSpecProject.createProject(testSpec, null);
 		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + testSpec, "TestCases", "testSpecification.xml");
 		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE, null);
+		return project;
 	}
 	
 	/**
@@ -55,10 +65,11 @@ public class JUnitHelper {
 	 * @throws IOException
 	 * @throws CoreException
 	 */
-	public static void createDefaultCardConfig() throws IOException, CoreException{
+	public static IProject createDefaultCardConfig() throws IOException, CoreException{
 		IProject project = GtCardConfigProject.createProject(cardConfig, null);
 		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + cardConfig, "cardconfig.xml");
 		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE, null);
+		return project;
 	}
 	
 	/**
@@ -66,10 +77,11 @@ public class JUnitHelper {
 	 * @throws IOException
 	 * @throws CoreException
 	 */
-	public static void createDefaultCreateDefaultTestCampaign() throws IOException, CoreException{
+	public static IProject createDefaultCreateDefaultTestCampaign() throws IOException, CoreException{
 		IProject project = GtTestCampaignProject.createProject(testCampaign, null);
 		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + testCampaign, "ExecutionState", "TestResults", "TestSpecification", "testCampaign.xml");
 		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE, null);
+		return project;
 	
 	}
 	/**
@@ -77,9 +89,6 @@ public class JUnitHelper {
 	 * 
 	 * @param toDelete
 	 */
-	//FIXME: MBK: jenkins build does not work if this method is used
-	// file /srv/jenkins/.jenkins/jobs/GlobalTester_RCP/workspace/plugins/org.globaltester.core.test/src/org/globaltester/core/ExportTest.java,
-	// line 70: The method recursiveDelete(File) is undefined for the type JUnitHelper
 	public static void recursiveDelete(File toDelete) {
 		if (toDelete.isDirectory()) {
 			String[] files = toDelete.list();
@@ -89,5 +98,83 @@ public class JUnitHelper {
 			}
 		}
 		toDelete.delete();
+	}
+	
+	/**
+	 * Create a temporary file containing the given bytes.
+	 * 
+	 * @param content
+	 * @return
+	 * @throws IOException
+	 */
+	public static File createTemporaryFile(byte [] content) throws IOException{
+		File tempFile = File.createTempFile("GtTempFile", "");
+		FileOutputStream out = new FileOutputStream(tempFile);
+		out.write(content);
+		out.close();
+		return tempFile;
+	}
+	
+	public static File createTemporaryFile(String name) throws IOException{
+		File result = new File(createTemporaryFolder(), name);
+		result.createNewFile();
+		return result;
+	}
+	
+	public static File createTemporaryFolder() throws IOException{
+		File tempFile = File.createTempFile("GtTempFolder", "");
+		tempFile.delete();
+		tempFile.mkdir();
+		return tempFile;
+	}
+	
+	/**
+	 * Compares 2 files using their attributes. If the deep parameter is
+	 * specified, the contents are compared.
+	 * 
+	 * @param first
+	 * @param second
+	 * @param deep
+	 * @return false 
+	 * @throws IOException
+	 */
+	public static boolean compareFiles(File first, File second, boolean deep) throws IOException{
+		if (!(first.exists() == second.exists())){
+			return false;
+		}
+		if (!first.getName().equals(second.getName())){
+			return false;
+		}
+		if (!(first.isDirectory() == second.isDirectory())){
+			return false;
+		}
+		if (!(first.length() == second.length())){
+			return false;
+		}
+		if (!(first.canExecute() == second.canExecute())){
+			return false;
+		}
+		if (!(first.canWrite() == second.canWrite())){
+			return false;
+		}
+		if (!(first.canRead() == second.canRead())){
+			return false;
+		}
+		if (!(first.isHidden() == second.isHidden())){
+			return false;
+		}
+		
+		if (deep && first.isFile()){
+			FileInputStream in = new FileInputStream(first);
+			FileInputStream in2 = new FileInputStream(second);
+			int data;
+			while ((data = in.read() )!= -1){
+				if (data != in2.read()){
+					return false;
+				}
+			}
+		}		
+		
+		return true;
 	}
 }

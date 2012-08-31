@@ -66,4 +66,26 @@ public class JUnitHelperTest {
 		assertTrue("file does not exist", !tempFile.exists());
 		
 	}
+	
+	@Test
+	public void testCompareFiles() throws IOException{
+		File first = JUnitHelper.createTemporaryFile("file");
+		File second = JUnitHelper.createTemporaryFile("file");
+		
+		assertTrue(JUnitHelper.compareFiles(first, second, true));
+	}
+	
+	@Test
+	public void testCreateEmptyProject() throws CoreException{
+		String test = "testProject";
+		JUnitHelper.createEmptyProject(test);
+		assertTrue(ResourcesPlugin.getWorkspace().getRoot().getProject(test).exists());
+	}
+	
+	@Test
+	public void testCreateTemporaryFile() throws IOException{
+		byte [] content = new byte []{};
+		File file = JUnitHelper.createTemporaryFile(content);
+		assertTrue(file.exists());
+	}
 }
