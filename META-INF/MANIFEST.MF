@@ -13,4 +13,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.junit4;bundle-version="4.8.1"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.globaltester.junit
+Export-Package: org.globaltester.junit,
+ org.globaltester.junit.test
