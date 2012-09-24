@@ -4,16 +4,22 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.globaltester.cardconfiguration.GtCardConfigProject;
 import org.globaltester.core.resources.GtResourceHelper;
 import org.globaltester.testrunner.GtTestCampaignProject;
 import org.globaltester.testspecification.GtTestSpecProject;
+import org.osgi.framework.Bundle;
 
 /**
  * Convenience class that provides several methods to simplify the creation 
@@ -176,5 +182,17 @@ public class JUnitHelper {
 		}		
 		
 		return true;
+	}
+	
+	public static void copyPluginFiles(File destination, String bundle, String pathToFiles, String ... toCopy) throws IOException{
+		Bundle curBundle = Platform.getBundle(bundle);
+		URL url = FileLocator.find(curBundle, new Path(pathToFiles), null);
+		IPath pluginDir = new Path(FileLocator.toFileURL(url).getPath());
+		
+		File source = pluginDir.toFile();
+		
+		for (String filename : toCopy){
+			GtResourceHelper.copyFiles(new File(source, filename), destination);
+		}
 	}
 }
