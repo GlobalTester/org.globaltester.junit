@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Junit
 Bundle-SymbolicName: org.globaltester.junit;singleton:=true
 Bundle-Version: 3.0.0
+Bundle-Vendor: HJP Consulting GmbH
 Bundle-Activator: org.globaltester.junit.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
