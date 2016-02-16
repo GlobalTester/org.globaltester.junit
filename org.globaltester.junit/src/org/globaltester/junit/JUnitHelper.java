@@ -171,14 +171,27 @@ public class JUnitHelper {
 		}
 		
 		if (deep && first.isFile()){
-			FileInputStream in = new FileInputStream(first);
-			FileInputStream in2 = new FileInputStream(second);
-			int data;
-			while ((data = in.read() )!= -1){
-				if (data != in2.read()){
-					return false;
+			FileInputStream in = null;
+			FileInputStream in2 = null;
+			try {
+				in = new FileInputStream(first);
+				in2 = new FileInputStream(second);
+				int data;
+				while ((data = in.read() )!= -1){
+					if (data != in2.read()){
+						return false;
+					}
+				}
+			} finally{
+				if(in != null) {
+					in.close();
+				}
+				
+				if(in2 != null) {
+					in2.close();
 				}
 			}
+			
 		}		
 		
 		return true;
