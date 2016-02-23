@@ -61,7 +61,7 @@ public class JUnitHelper {
 	 */
 	public static IProject createDefaultTestSpec() throws IOException, CoreException{
 		IProject project = GtTestSpecProject.createProject(testSpec, null);
-		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + testSpec, "TestCases", "testSpecification.xml");
+		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + testSpec, "TestCases", "testSpecification.gtspec");
 		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE, null);
 		return project;
 	}
@@ -85,7 +85,7 @@ public class JUnitHelper {
 	 */
 	public static IProject createDefaultCreateDefaultTestCampaign() throws IOException, CoreException{
 		IProject project = GtTestCampaignProject.createProject(testCampaign, null);
-		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + testCampaign, "ExecutionState", "TestResults", "TestSpecification", "testCampaign.xml");
+		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + testCampaign, "ExecutionState", "TestResults", "TestSpecification", "testCampaign.gtcampaign");
 		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE, null);
 		return project;
 	
