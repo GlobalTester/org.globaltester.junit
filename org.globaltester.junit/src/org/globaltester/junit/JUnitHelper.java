@@ -169,17 +169,34 @@ public class JUnitHelper {
 		if (!(first.isHidden() == second.isHidden())){
 			return false;
 		}
-		
-		if (deep && first.isFile()){
-			FileInputStream in = new FileInputStream(first);
-			FileInputStream in2 = new FileInputStream(second);
-			int data;
-			while ((data = in.read() )!= -1){
-				if (data != in2.read()){
-					return false;
+
+		if (deep && first.isFile()) {
+			FileInputStream in = null;
+			FileInputStream in2 = null;
+			try {
+				in = new FileInputStream(first);
+				try {
+					in2 = new FileInputStream(second);
+					int data;
+					while ((data = in.read()) != -1) {
+						if (data != in2.read()) {
+							return false;
+						}
+					}
+				} finally {
+					if (in2 != null) {
+						in2.close();
+					}
+
 				}
+			} finally {
+				if (in != null) {
+					in.close();
+				}
+
 			}
-		}		
+
+		}
 		
 		return true;
 	}
