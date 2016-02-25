@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCampaign>
+  <SpecificationName />
+  <SpecificationVersion>unknown</SpecificationVersion>
+  <LastExecution>ExecutionState/20120810_103502_TestCampaign_20120810_103450.gt</LastExecution>
+  <TestCampaignElement>
+    <ExecutableSpec>TestSpecification/Default TestSpecification/TestCases/Unit1/testcase1.gt</ExecutableSpec>
+  </TestCampaignElement>
+</TestCampaign>
+
