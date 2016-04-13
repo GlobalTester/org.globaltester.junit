@@ -7,7 +7,7 @@ Bundle-Vendor: HJP Consulting GmbH
 Bundle-Activator: org.globaltester.junit.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
- org.globaltester.cardconfiguration,
+ org.globaltester.sampleconfiguration,
  org.globaltester.testspecification,
  org.junit,
  org.globaltester.base,

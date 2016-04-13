@@ -16,7 +16,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.globaltester.base.resources.GtResourceHelper;
-import org.globaltester.cardconfiguration.GtCardConfigProject;
+import org.globaltester.sampleconfiguration.GtSampleConfigProject;
 import org.globaltester.testrunner.GtTestCampaignProject;
 import org.globaltester.testspecification.GtTestSpecProject;
 import org.osgi.framework.Bundle;
@@ -31,7 +31,7 @@ import org.osgi.framework.Bundle;
 public class JUnitHelper {
 	
 	public static final String testSpec = "Default TestSpecification";
-	public static final String cardConfig = "Default CardConfig";
+	public static final String sampleConfig = "Default SampleConfig";
 	public static final String testCampaign = "Default TestCampaign";
 	static String subfolder = "/files/";
 	
@@ -67,13 +67,13 @@ public class JUnitHelper {
 	}
 	
 	/**
-	 * Create a default CardConfig for testing.
+	 * Create a default SampleConfig for testing.
 	 * @throws IOException
 	 * @throws CoreException
 	 */
-	public static IProject createDefaultCardConfig() throws IOException, CoreException{
-		IProject project = GtCardConfigProject.createProject(cardConfig, null);
-		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + cardConfig, "cardconfig.xml");
+	public static IProject createDefaultSampleConfig() throws IOException, CoreException{
+		IProject project = GtSampleConfigProject.createProject(sampleConfig, null);
+		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + sampleConfig, "sample.gtconfig");
 		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE, null);
 		return project;
 	}

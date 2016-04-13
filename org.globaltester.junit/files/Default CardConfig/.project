@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Default CardConfig</name>
+	<name>Default SampleConfig</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 	</buildSpec>
 	<natures>
-		<nature>org.globaltester.cardconfiguration.gtCardConfigNature</nature>
+		<nature>org.globaltester.sampleconfiguration.gtSampleConfigNature</nature>
 	</natures>
 </projectDescription>

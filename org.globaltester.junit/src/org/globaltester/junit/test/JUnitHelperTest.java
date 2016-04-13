@@ -32,9 +32,9 @@ public class JUnitHelperTest {
 	}
 	
 	@Test
-	public void testCreateDefaultCardConfig() throws IOException, CoreException{
-		JUnitHelper.createDefaultCardConfig();
-		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(JUnitHelper.cardConfig);
+	public void testCreateDefaultSampleConfig() throws IOException, CoreException{
+		JUnitHelper.createDefaultSampleConfig();
+		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(JUnitHelper.sampleConfig);
 		assertTrue(project.exists());
 	}
 	
