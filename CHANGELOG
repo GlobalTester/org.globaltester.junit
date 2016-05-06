@@ -1,5 +1,34 @@
-Version 3.0.3 (29.02.2016)
+Version 3.1.0 (06.05.2016)
 
+* Merge branch 'usr/amay/renameConfigObject'
+* Refactor CardConfig
+* Merge remote-tracking branch 'origin/usr/mboonk/qaSprint15'
+* Set all build relevant settings to Java 1.8
+* Merge branch 'usr/cstroh/opensourcingPlatform'
+* Add LICENSE and NOTICE to build.properties
+* Add LICENSE and NOTICE files for our code
+* Add LICENSE and NOTICE files to gitattributes
+* Add README.md to repository
+* Merge branch 'usr/mboonk/consistentTestCaseExec'
+* Extracted new bundle o.g.scriptrunner from o.g.testrunner
+* Merge branch 'usr/jkoch/mergeCoreBase'
+* Adapt imports (core->base)
+* Merge branch 'usr/amay/releaseBuild'
+* Update version numbers in POM
+* Remove anmespaces from POMs
+* Update version numbers
+* Merge remote-tracking branch 'origin/usr/mboonk/fixFileEndings'
+* update parent pom version
+* Updated the changelog
+* Added missing line endings at the end of text files
+* Merge remote-tracking branch 'origin/usr/cstroh/fixGitAttributes'
+* Replace gitattributes by file from o.g.dev
+* Merge branch 'usr/jgoeke/fileEnding'
+* Merge branch 'usr/slutters/rmCommonsDep'
+* Fixed line endings
+* changed file endings from xml to .gt, .gtsuite or .gtcampaign
+* Allways close both input streams
+* fixed resource leak
 * Code maintenance
 
 
