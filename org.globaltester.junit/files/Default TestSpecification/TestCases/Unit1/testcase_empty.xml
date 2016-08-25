@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase id="OpenPGP" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://globaltester.org/testspecification">
+	<Title>Try to select application on OpenPGP card and read data</Title>
+	<Version>1.00</Version>
+	<Purpose>Try to select application on OpenPGP card and read data</Purpose>
+	<Profile></Profile>
+	<Reference></Reference>
+	<Precondition>
+		<Command>
+			<Text>Reset card</Text>
+		</Command>
+		<TechnicalCommand>
+		</TechnicalCommand>
+		<Description>Perform a cold reset of the card in order to ensure all temporary data is removed.</Description>
+	</Precondition>
+	<TestStep>
+		<Command xsi:type="APDUCommand">
+		</Command>
+		<TechnicalCommand>
+		</TechnicalCommand>
+		<Description>{aid} defines the application ID</Description>
+	</TestStep>
+</TestCase>

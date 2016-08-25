@@ -85,7 +85,7 @@ public class JUnitHelper {
 	 */
 	public static IProject createDefaultCreateDefaultTestCampaign() throws IOException, CoreException{
 		IProject project = GtTestCampaignProject.createProject(testCampaign, null);
-		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + testCampaign, "ExecutionState", "TestResults", "TestSpecification", "testCampaign.gtcampaign");
+		GtResourceHelper.copyPluginFilesToWorkspaceProject(Activator.PLUGIN_ID, project, subfolder + testCampaign, "ExecutionState", "TestResults", "TestSpecification", GtTestCampaignProject.DEFAULT_FILE_NAME_GT_CAMPAIGN);
 		ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE, null);
 		return project;
 	

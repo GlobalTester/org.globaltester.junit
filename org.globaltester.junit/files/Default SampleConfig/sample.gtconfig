@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SampleConfig>
+  <Description>Default configuration</Description>
+  <PlatformId>00</PlatformId>
+  <SampleId>12345</SampleId>
+  <ConfigurationParams>
+    <Parameter paramName="PASSWORDS_MRZ"><![CDATA[P<D<<MUSTERMANN<<ERIKA<<<<<<<<<<<<<<<<<<<<<<C11T002JM4D<<9608122F1310317<<<<<<<<<<<<<<<6]]></Parameter>
+    <Parameter paramName="PASSWORDS_PIN">123456</Parameter>
+  </ConfigurationParams>
+</SampleConfig>
+
